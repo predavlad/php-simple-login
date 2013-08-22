@@ -9,8 +9,8 @@ define('CLASS_FOLDER', 'includes/classes');
 define('DS', DIRECTORY_SEPARATOR);
 
 define('DB_USER', 'root');
-define('DB_PASS', 'inno');
-define('DB_NAME', 'cristi');
+define('DB_PASS', '');
+define('DB_NAME', 'test');
 
 // defines for hash algorithm
 define("PBKDF2_HASH_ALGORITHM", "sha256");

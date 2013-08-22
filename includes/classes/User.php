@@ -41,9 +41,20 @@ class User
 
     /**
      * @param $value
-     * @param string $field
+     * @return $this
      */
-    public function load($value, $field = 'id')
+    public function load($value)
+    {
+        $this->loadBy($value, 'id');
+        return $this;
+    }
+
+    /**
+     * @param $value
+     * @param $field
+     * @return $this
+     */
+    public function loadBy($value, $field)
     {
         $db = DbFactory::getInstance();
         $query = "SELECT * FROM users WHERE $field = :$field LIMIT 1";
@@ -54,6 +65,8 @@ class User
         foreach ($result as $key => $value) {
             $this->$key = $value;
         }
+
+        return $this;
     }
 
     /**
@@ -71,6 +84,10 @@ class User
         $u->save();
     }
 
+    /**
+     * Saves the current entity. Either creates a new one, or updates the current one
+     * Existing db entries have $this->_id
+     */
     public function save()
     {
         $params = $setParams = array();
@@ -90,6 +107,7 @@ class User
         $stmt = $db->prepare($query);
         $stmt->execute($params);
 
+        return $this;
     }
 
     /**
@@ -124,6 +142,11 @@ class User
         return $this;
     }
 
+    public static function logout()
+    {
+        session_destroy();
+    }
+
     /**
      * @param $id
      */
@@ -136,7 +159,7 @@ class User
     {
         $userId = static::getUserSession();
         if (empty($userId)) {
-            header('Location:login.php?r=' . rawurlencode($_SERVER['REQUEST_URI']));
+            header('Location:login.php?r=' . $_SERVER['REQUEST_URI']);
         }
         return new static($userId);
     }

@@ -8,9 +8,9 @@ if (isset($_POST['user'])) {
 
     if ($user->login()) {
         if (isset($_SESSION['r'])) {
-            header($_SESSION['r']);
+            header("Location:" . $_SESSION['r']);
         } else {
-            header('Location:/test/');
+            header('Location:/');
         }
     }
 
