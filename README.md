@@ -6,11 +6,17 @@ A simple login script
 Usage:
 
      include 'includes/config.php';
-     $user = User::isAuthorized(); // redirects user to login.php if not logged in
+     $user = User::isAuthorized(); // redirects user to login.php if not logged in, then back to requested page
 
 
-To create a user write <?php User::createUser('admin', 'pass'); ?> and run the file once.
+To create a user write 
+
+    <?php User::createUser('admin', 'pass'); ?>
+    
+in any file, and run it once.
 
 You need to create the database from the file: db_user.sql
 
+
+ - Users the password hashing system from https://crackstation.net/hashing-security.htm
 
