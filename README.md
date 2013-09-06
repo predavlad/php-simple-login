@@ -19,4 +19,5 @@ You need to create the database from the file: db_user.sql
 
 
  - Users the password hashing system from https://crackstation.net/hashing-security.htm
+ - If you have a PHP version lower than 5.3.0, you need to replace static:: with self:: More info here: http://php.net/manual/ro/language.oop5.late-static-bindings.php
 
