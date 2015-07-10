@@ -11,7 +11,8 @@ Usage:
 
 To create a user write 
 
-    <?php User::createUser('admin', 'pass'); ?>
+    <?php include 'includes/config.php';
+    User::createUser('admin', 'pass');
     
 in any file, and run it once.
 
