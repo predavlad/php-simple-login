@@ -16,7 +16,7 @@ To create a user write
     
 in any file, and run it once.
 
-You need to create the database from the file: db_user.sql
+You need to create the database from the file: `db_user.sql`
 
 More info:
 
